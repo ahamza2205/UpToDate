@@ -3,6 +3,8 @@ package com.example.newsapiapp.mvvm
 import androidx.lifecycle.LiveData
 import com.example.newsapiapp.database.SavedArticle
 import com.example.newsapiapp.service.RetrofitInstance
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class NewsRepo(val newsDao: NewsDao) {
 
@@ -19,22 +21,24 @@ class NewsRepo(val newsDao: NewsDao) {
 
     // getting breaking news
 
-    suspend fun getBreakingNews(code: String, pageNumber: Int) = RetrofitInstance.api.getBreakingNews(code, pageNumber)
+    suspend fun getBreakingNews(code: String, pageNumber: Int) = withContext(Dispatchers.IO){ RetrofitInstance.api.getBreakingNews(code, pageNumber)}
 
 
     // getting category news
 
-    suspend fun getCategoryNews(code: String) = RetrofitInstance.api.getByCategory(code)
+    suspend fun getCategoryNews(code: String)  = withContext(Dispatchers.IO){
+        RetrofitInstance.api.getByCategory(code)
+    }
 
 
     // to delete ALl news
 
-    fun deleteAll(){
+    suspend fun deleteAll() = withContext(Dispatchers.IO){
         newsDao.delteAll()
     }
 
 
-    suspend fun insertNews(savedArticle: SavedArticle) {
+    suspend fun insertNews(savedArticle: SavedArticle) = withContext(Dispatchers.IO) {
 
         newsDao.insertNews(savedArticle)
     }

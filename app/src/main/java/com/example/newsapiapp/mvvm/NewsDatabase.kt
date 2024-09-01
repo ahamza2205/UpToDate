@@ -5,44 +5,30 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.newsapiapp.database.ClassConvertors
+import com.example.newsapiapp.database.ClassConverters
 import com.example.newsapiapp.database.SavedArticle
 
 @Database(entities = [SavedArticle::class], version = 1)
-@TypeConverters(ClassConvertors::class)
+@TypeConverters(ClassConverters::class)
 abstract class NewsDatabase : RoomDatabase() {
 
-    // declaring abstract reference for the interface
+    abstract val newsDao: NewsDao
 
-    abstract  val newsDao: NewsDao
-
-    // singleton instances
-
-    companion object{
-        // THIS MAKES THE FIELD IMMEDIATELY VISIBILE TO OTHER THREAD
+    companion object {
         @Volatile
-        private var INSTANCE : NewsDatabase? = null
-        fun getInstance (context: Context) : NewsDatabase{
-            synchronized(this){
-                var instance  = INSTANCE
+        private var INSTANCE: NewsDatabase? = null
 
-                if (instance == null){
+        fun getInstance(context: Context): NewsDatabase {
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    NewsDatabase::class.java,
+                    "news_database"
+                ).build()
 
-                    instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        NewsDatabase::class.java,
-                        "news_database"
-
-
-                    ).build()
-
-                    INSTANCE = instance
-                }
-
-                return instance
+                INSTANCE = instance
+                instance
             }
         }
     }
-
-
 }

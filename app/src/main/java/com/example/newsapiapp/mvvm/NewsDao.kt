@@ -13,7 +13,6 @@ interface NewsDao {
     @Insert
     suspend fun insertNews(savedArticle: SavedArticle)
 
-
     @Query("SELECT * FROM  NEWSARTICLE")
     fun getAllNews() : LiveData<List<SavedArticle>>
 
@@ -22,7 +21,6 @@ interface NewsDao {
 
     @Query("DELETE FROM NEWSARTICLE")
     fun delteAll()
-
 
 
 }

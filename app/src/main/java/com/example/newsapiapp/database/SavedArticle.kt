@@ -4,28 +4,27 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity ("NEWSARTICLE")
-data class SavedArticle (
+@Entity(tableName = "NEWSARTICLE")
+data class SavedArticle(
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    val id: Int = 0, // Default value to allow for auto-generate
 
-    @PrimaryKey (autoGenerate = true)
-    @ColumnInfo ("id")
-    val id : Int,
+    @ColumnInfo(name = "description")
+    val description: String, // Changed from Any to String
 
-    @ColumnInfo ("description")
-    val description: Any,
-
-    @ColumnInfo ("publishedAt")
+    @ColumnInfo(name = "publishedAt")
     val publishedAt: String,
 
-    @ColumnInfo ("source")
-    val source: Source,
+    @ColumnInfo(name = "source")
+    val source: Source, // Ensure Source has a Type Converter
 
-    @ColumnInfo ("title")
+    @ColumnInfo(name = "title")
     val title: String,
 
-    @ColumnInfo ("url")
+    @ColumnInfo(name = "url")
     val url: String,
 
-    @ColumnInfo ("urlToImage")
-    val urlToImage: Any
+    @ColumnInfo(name = "urlToImage")
+    val urlToImage: String // Changed from Any to String
 )
