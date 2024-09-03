@@ -1,104 +1,116 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:padding="16dp"
+    android:background="@color/light_blue">
 
-
-
+    <!-- No Internet Image -->
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:id="@+id/noWifi"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:src="@drawable/nowifi"
         android:visibility="gone"
-
         android:layout_centerInParent="true"
-        android:id="@+id/noWifi"/>
+        android:layout_marginBottom="8dp" />
 
-
+    <!-- No Internet Text -->
     <TextView
+        android:id="@+id/noWifiText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NO INTERNET"
         android:gravity="center"
-        android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textColor="@color/primary_blue"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:visibility="gone"
-        android:layout_centerInParent="true"
         android:layout_below="@id/noWifi"
-        android:id="@+id/noWifiText"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
 
-
+    <!-- Horizontal Scroll of Images -->
     <LinearLayout
+        android:id="@+id/hsv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:orientation="horizontal"
         android:gravity="center"
-        android:id="@+id/hsv"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@id/noWifiText">
 
-        android:layout_marginBottom="15dp">
-
-
+        <!-- Breaking News Image -->
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/breakingImage"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_margin="10dp"
-            android:src="@drawable/breakingnews"
+            android:src="@drawable/breaking"
             app:civ_border_width="2dp"
-            app:civ_border_color="@color/red"/>
+            app:civ_border_color="@color/primary_blue"
+            android:elevation="4dp"
+            android:shadowColor="@color/dark_blue" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/businessImage"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/business"
-        app:civ_border_width="2dp"
-        app:civ_border_color="@color/red"/>
-
+        <!-- Business News Image -->
         <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/sportsImage"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:src="@drawable/sports"
-        android:layout_margin="10dp"
-        app:civ_border_width="2dp"
-        app:civ_border_color="@color/red"/>
+            android:id="@+id/businessImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/busness"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/primary_blue"
+            android:elevation="4dp"
+            android:shadowColor="@color/dark_blue" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/techImage"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:src="@drawable/tech"
-        app:civ_border_width="2dp"
-        android:layout_margin="10dp"
+        <!-- Sports News Image -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/sportsImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/sports"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/primary_blue"
+            android:elevation="4dp"
+            android:shadowColor="@color/dark_blue" />
 
-        app:civ_border_color="@color/red"/>
-
-
+        <!-- Technology News Image -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/techImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/tec"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/primary_blue"
+            android:elevation="4dp"
+            android:shadowColor="@color/dark_blue" />
 
     </LinearLayout>
 
-    <ProgressBar
+    <!-- Loading Indicator -->
+    <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/paginationProgressBar"
-        style="?attr/progressBarStyle"
         android:layout_width="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:visibility="invisible" />
 
-
+    <!-- News RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBreakingNews"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/hsv"
         android:clipToPadding="false"
-        android:paddingBottom="50dp" />
+        android:paddingBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:elevation="2dp" />
+
 
 
 </RelativeLayout>

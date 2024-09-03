@@ -21,7 +21,7 @@ interface Service {
     @GET("v2/everything")
     suspend fun getByCategory(
         @Query("q")
-        category: String = "",
+        category: String = " ",
         @Query("apiKey")
         apiKey : String = API_KEY
     ): Response<News>

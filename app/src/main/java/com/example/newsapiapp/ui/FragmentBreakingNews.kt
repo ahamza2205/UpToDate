@@ -92,7 +92,7 @@ class FragmentBreakingNews : Fragment(), ItemClicklistner {
                 }
 
                 R.id.techImage -> {
-                    (activity as AppCompatActivity).supportActionBar?.setTitle("Tech")
+                    (activity as AppCompatActivity).supportActionBar?.setTitle("Technology")
                     isClicked = true
                     viewModel.getCategory("tech")
                     loadCategoryNews()
@@ -186,13 +186,13 @@ class FragmentBreakingNews : Fragment(), ItemClicklistner {
         newsAdapter.setItemClickListener(this)
         rv.apply {
             adapter = newsAdapter
-            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         }
     }
 
     override fun onItemClicked(position: Int, article: Article) {
         // GOING TO ANOTHER FRAGMENT
-        val action = FragmentBreakingNewsDirections.actionFragmentBreakingNewsToFragmentArticle()
+        val action = FragmentBreakingNewsDirections.actionFragmentBreakingNewsToFragmentArticle(article)
         view?.findNavController()?.navigate(action)
         Toast.makeText(context, "check ${article.title}", Toast.LENGTH_SHORT).show()
     }

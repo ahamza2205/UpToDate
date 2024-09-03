@@ -1,9 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.NewsApiApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.NewsApiApp" parent="Theme.MaterialComponents.DayNight">
+        <!-- Primary color (Dark Blue) -->
+        <item name="colorPrimary">@color/primary_blue</item>
+        <!-- Accent color (Light Blue) -->
+        <item name="colorAccent">@color/light_blue</item>
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/light_gray</item>
+        <!-- Background color -->
+        <item name="android:colorBackground">@color/light_blue</item>
+        <!-- Divider color -->
+        <item name="android:divider">@color/primary_blue</item>
     </style>
-
     <style name="Theme.NewsApiApp" parent="Base.Theme.NewsApiApp" />
 </resources>

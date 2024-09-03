@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_fragmentArticle_to_fragmentBreakingNews"
             app:destination="@id/fragmentBreakingNews" />
+        <argument android:name="article"
+            app:argType="com.example.newsapiapp.database.Article"
+            />
     </fragment>
     <fragment
         android:id="@+id/fragmentSavedNews"

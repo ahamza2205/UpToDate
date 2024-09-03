@@ -1,7 +1,6 @@
 package com.example.newsapiapp.adapters
 
 import android.annotation.SuppressLint
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +9,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target
 import com.example.newsapiapp.R
 import com.example.newsapiapp.Utils
 import com.example.newsapiapp.database.Article
@@ -35,14 +29,16 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleHolder>() {
     override fun onBindViewHolder(holder: ArticleHolder, position: Int) {
         val article = newsList[position]
         holder.itemView.apply {
-                Glide.with(this).load(article.urlToImage)
-                    .error(R.drawable.nowifi)
-                    .placeholder(R.drawable.ic_search)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .into(holder.imageView)
+            holder.pb.visibility = View.VISIBLE
+            Glide.with(this).load(article.urlToImage)
+                .error(R.drawable.news)
+                .placeholder(R.drawable.ic_search)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(holder.imageView)
             holder.pb.visibility = View.GONE
+
             holder.textTitle.text = article.title
-            holder.tvSource.text = article.source.name
+            holder.tvSource.text = article.source!!.name
             holder.tvDescription.text = article.description
             holder.tvPubslishedAt.text = Utils.DateFormat(article.publishedAt)
         }
@@ -69,7 +65,7 @@ class ArticleHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var tvSource: TextView = itemView.findViewById(R.id.tvSource)
     var tvDescription: TextView = itemView.findViewById(R.id.tvDescription)
     var tvPubslishedAt: TextView = itemView.findViewById(R.id.tvPublishedAt)
-    var pb: ProgressBar = itemView.findViewById(R.id.pbImage)
+    var pb: ProgressBar = itemView.findViewById(R.id.pbLoading) // Use the correct ProgressBar ID
 }
 
 interface ItemClicklistner {

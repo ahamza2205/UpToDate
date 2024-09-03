@@ -23,6 +23,7 @@ class NewsViewModel(val newsRepo: NewsRepo, application: Application) :
 
     init {
         getBreakingNews("eg")
+
     }
 
     fun getBreakingNews(code: String) = viewModelScope.launch {
