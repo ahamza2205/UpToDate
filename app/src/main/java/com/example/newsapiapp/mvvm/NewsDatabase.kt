@@ -5,8 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.newsapiapp.database.ClassConverters
-import com.example.newsapiapp.database.SavedArticle
+import com.example.newsapiapp.db.ClassConverters
+import com.example.newsapiapp.db.SavedArticle
 
 @Database(entities = [SavedArticle::class], version = 1)
 @TypeConverters(ClassConverters::class)

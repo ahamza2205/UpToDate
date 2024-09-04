@@ -1,4 +1,4 @@
-package com.example.newsapiapp.database
+package com.example.newsapiapp.db
 
 import android.os.Parcel
 import android.os.Parcelable

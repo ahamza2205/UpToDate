@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.example.newsapiapp.R
 import com.example.newsapiapp.Utils
-import com.example.newsapiapp.database.Source
+import com.example.newsapiapp.db.SavedArticle
+import com.example.newsapiapp.db.Source
 import com.example.newsapiapp.mvvm.NewsDatabase
 import com.example.newsapiapp.mvvm.NewsRepo
 import com.example.newsapiapp.mvvm.NewsViewModel
@@ -24,6 +27,8 @@ class FragmentArticle : Fragment() {
 
     lateinit var viewModel: NewsViewModel
     lateinit var args: FragmentArticleArgs
+
+    var stringCheking = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,13 +44,12 @@ class FragmentArticle : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = "Article"
 
 
-
         val dao = NewsDatabase.getInstance(requireActivity()).newsDao
         val repository = NewsRepo(dao)
         val factory = NewsViewModelFac(repository, requireActivity().application)
         viewModel = ViewModelProvider(this, factory)[NewsViewModel::class.java]
 
-       args = FragmentArticleArgs.fromBundle(requireArguments())
+        args = FragmentArticleArgs.fromBundle(requireArguments())
 
         // initializing views of article fragment
         val fab = view.findViewById<FloatingActionButton>(R.id.fab)
@@ -64,7 +68,33 @@ class FragmentArticle : Fragment() {
 
         Glide.with(requireActivity()).load(args.article.urlToImage).into(imageView)
 
+        viewModel.getSavedNews.observe(viewLifecycleOwner) { response ->
+            for (i in response) {
+                if (args.article.title == i.title) {
+                    stringCheking = i.title
+                }
+            }
+        }
 
-
+        fab.setOnClickListener {
+            if (stringCheking == args.article.title) {
+                Toast.makeText(context, "Already Saved", Toast.LENGTH_SHORT).show()
+            } else {
+                args.article.let {
+                    viewModel.insertArticle(
+                        SavedArticle(
+                            0,
+                            it.description ?: "",
+                            it.publishedAt ?: "",
+                            source ?: Source("unknown", "Unknown Source"),
+                            it.title ?: "No Title",
+                            it.url ?: "",
+                            it.urlToImage ?: ""
+                        )
+                    )
+                }
+                view.findNavController().navigate(R.id.action_fragmentArticle_to_fragmentSavedNews)
+            }
+        }
     }
 }

@@ -12,21 +12,20 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.newsapiapp.R
 import com.example.newsapiapp.Utils
-import com.example.newsapiapp.db.Article
+import com.example.newsapiapp.db.SavedArticle
 
-class ArticleAdapter : RecyclerView.Adapter<ArticleHolder>() {
+class SavedArticleAdapter ()  : RecyclerView.Adapter<SavedArticleHolder>() {
 
-    private var newsList = listOf<Article>()
+    private var newsList = listOf<SavedArticle>()
     private var listener: ItemClicklistner? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SavedArticleHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.newlist, parent, false)
-        return ArticleHolder(view)
+        return SavedArticleHolder(view)
     }
-
     override fun getItemCount(): Int = newsList.size
 
-    override fun onBindViewHolder(holder: ArticleHolder, position: Int) {
+    override fun onBindViewHolder(holder: SavedArticleHolder, position: Int) {
         val article = newsList[position]
         holder.itemView.apply {
             holder.pb.visibility = View.VISIBLE
@@ -43,9 +42,7 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleHolder>() {
             holder.tvPubslishedAt.text = Utils.DateFormat(article.publishedAt)
         }
 
-        holder.itemView.setOnClickListener {
-            listener?.onItemClicked(position, article)
-        }
+
     }
 
     fun setItemClickListener(listener: ItemClicklistner) {
@@ -53,29 +50,17 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setlist(news: List<Article>) {
+    fun setlist(news: List<SavedArticle>) {
         newsList = news
         notifyDataSetChanged()
     }
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun filteredList(newfilteredlist: List<Article>){
-        this.newsList = newfilteredlist
-        notifyDataSetChanged()
-    }
-
-
 }
 
-class ArticleHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class SavedArticleHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var imageView: ImageView = itemView.findViewById(R.id.ivArticleImage)
     var textTitle: TextView = itemView.findViewById(R.id.tvTitle)
     var tvSource: TextView = itemView.findViewById(R.id.tvSource)
     var tvDescription: TextView = itemView.findViewById(R.id.tvDescription)
     var tvPubslishedAt: TextView = itemView.findViewById(R.id.tvPublishedAt)
     var pb: ProgressBar = itemView.findViewById(R.id.pbLoading) // Use the correct ProgressBar ID
-}
-
-interface ItemClicklistner {
-    fun onItemClicked(position: Int, article: Article)
 }

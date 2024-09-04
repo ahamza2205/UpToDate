@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
 
-                <color name="primary_blue">#2D3E50</color> <!-- Dark Blue (Primary) -->
-                <color name="light_blue">#74A8FF</color>  <!-- Light Blue (Accent/Secondary) -->
-                <color name="dark_blue">#1B2A3C</color>  <!-- Darker shade of Blue (Primary Variant) -->
-                <color name="white">#FFFFFF</color> <!-- White (for backgrounds and text) -->
-                <color name="light_gray">#D3D3D3</color> <!-- Light Gray (for secondary text) -->
+    <resources>
+        <color name="primary_blue">#004085</color> <!-- الأزرق الداكن -->
+        <color name="light_blue">#007BFF</color>  <!-- الأزرق السماوي -->
+        <color name="white">#FFFFFF</color>        <!-- الأبيض -->
+        <color name="light_gray">#4F4F4F</color>   <!-- الرمادي الغامق -->
+        <color name="background_gray">#F5F5F5</color> <!-- الرمادي الفاتح -->
+    </resources>
 
 
-</resources>
+

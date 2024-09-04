@@ -9,9 +9,11 @@
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/light_gray</item>
         <!-- Background color -->
-        <item name="android:colorBackground">@color/light_blue</item>
+        <item name="android:colorBackground">@color/background_gray</item>
         <!-- Divider color -->
         <item name="android:divider">@color/primary_blue</item>
     </style>
+
+    <!-- Extend the base theme -->
     <style name="Theme.NewsApiApp" parent="Base.Theme.NewsApiApp" />
 </resources>

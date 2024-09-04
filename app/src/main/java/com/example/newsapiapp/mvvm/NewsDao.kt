@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.newsapiapp.database.SavedArticle
+import com.example.newsapiapp.db.SavedArticle
 
 
 @Dao

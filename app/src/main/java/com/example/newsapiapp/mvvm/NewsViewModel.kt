@@ -5,8 +5,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.newsapiapp.Utils.Companion.updateLiveData
-import com.example.newsapiapp.database.News
-import com.example.newsapiapp.database.SavedArticle
+import com.example.newsapiapp.db.News
+import com.example.newsapiapp.db.SavedArticle
 import com.example.newsapiapp.wrapper.Resource
 import kotlinx.coroutines.launch
 
@@ -18,8 +18,8 @@ class NewsViewModel(val newsRepo: NewsRepo, application: Application) :
     val pageNumber = 1
     // get category news
     val categoryNews: MutableLiveData<Resource<News>> = MutableLiveData()
-    // to get saved news
-    //val getSavedNews = newsRepo.getAllSavedNews()
+    //to get saved news
+    val getSavedNews = newsRepo.getAllSavedNews()
 
     init {
         getBreakingNews("eg")

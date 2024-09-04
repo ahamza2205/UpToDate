@@ -1,7 +1,7 @@
 package com.example.newsapiapp.service
 
 import com.example.newsapiapp.Utils.Companion.API_KEY
-import com.example.newsapiapp.database.News
+import com.example.newsapiapp.db.News
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

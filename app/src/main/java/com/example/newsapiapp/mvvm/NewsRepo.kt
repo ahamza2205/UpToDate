@@ -1,7 +1,7 @@
 package com.example.newsapiapp.mvvm
 
 import androidx.lifecycle.LiveData
-import com.example.newsapiapp.database.SavedArticle
+import com.example.newsapiapp.db.SavedArticle
 import com.example.newsapiapp.service.RetrofitInstance
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

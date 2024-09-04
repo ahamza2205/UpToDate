@@ -10,10 +10,22 @@
         android:label="FragmentBreakingNews" >
         <action
             android:id="@+id/action_fragmentBreakingNews_to_fragmentArticle"
-            app:destination="@id/fragmentArticle" />
+            app:destination="@id/fragmentArticle"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/fragmentArticle"/>
         <action
             android:id="@+id/action_fragmentBreakingNews_to_fragmentSavedNews"
-            app:destination="@id/fragmentSavedNews" />
+            app:destination="@id/fragmentSavedNews"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/fragmentSavedNews"/>
     </fragment>
     <fragment
         android:id="@+id/fragmentArticle"
@@ -21,13 +33,29 @@
         android:label="FragmentArticle" >
         <action
             android:id="@+id/action_fragmentArticle_to_fragmentSavedNews"
-            app:destination="@id/fragmentSavedNews" />
+            app:destination="@id/fragmentSavedNews"
+
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/fragmentSavedNews"/>
         <action
             android:id="@+id/action_fragmentArticle_to_fragmentBreakingNews"
-            app:destination="@id/fragmentBreakingNews" />
-        <argument android:name="article"
-            app:argType="com.example.newsapiapp.database.Article"
-            />
+            app:destination="@id/fragmentBreakingNews"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/fragmentBreakingNews"/>
+        <argument
+            android:name="article"
+            app:argType="com.example.newsapiapp.db.Article" />
+
+
+        />
     </fragment>
     <fragment
         android:id="@+id/fragmentSavedNews"
