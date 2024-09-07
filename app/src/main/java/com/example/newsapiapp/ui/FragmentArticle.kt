@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -34,7 +35,6 @@ class FragmentArticle : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_article, container, false)
     }
 
@@ -42,7 +42,6 @@ class FragmentArticle : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         (activity as AppCompatActivity).supportActionBar?.title = "Article"
-
 
         val dao = NewsDatabase.getInstance(requireActivity()).newsDao
         val repository = NewsRepo(dao)
@@ -52,7 +51,7 @@ class FragmentArticle : Fragment() {
         args = FragmentArticleArgs.fromBundle(requireArguments())
 
         // initializing views of article fragment
-        val fab = view.findViewById<FloatingActionButton>(R.id.fab)
+        val btnAddToFavorite = view.findViewById<Button>(R.id.btnAddToFavorite)
 
         val textTitle: TextView = view.findViewById(R.id.tvTitle)
         val tSource: TextView = view.findViewById(R.id.tvSource)
@@ -65,7 +64,6 @@ class FragmentArticle : Fragment() {
         tSource.setText(source.name)
         tDescription.setText(args.article.description)
         tPubslishedAt.setText(Utils.DateFormat(args.article.publishedAt))
-
         Glide.with(requireActivity()).load(args.article.urlToImage).into(imageView)
 
         viewModel.getSavedNews.observe(viewLifecycleOwner) { response ->
@@ -76,7 +74,7 @@ class FragmentArticle : Fragment() {
             }
         }
 
-        fab.setOnClickListener {
+        btnAddToFavorite.setOnClickListener {
             if (stringCheking == args.article.title) {
                 Toast.makeText(context, "Already Saved", Toast.LENGTH_SHORT).show()
             } else {

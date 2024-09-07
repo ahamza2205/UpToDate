@@ -1,12 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-    <resources>
-        <color name="primary_blue">#004085</color> <!-- الأزرق الداكن -->
-        <color name="light_blue">#007BFF</color>  <!-- الأزرق السماوي -->
-        <color name="white">#FFFFFF</color>        <!-- الأبيض -->
-        <color name="light_gray">#4F4F4F</color>   <!-- الرمادي الغامق -->
-        <color name="background_gray">#F5F5F5</color> <!-- الرمادي الفاتح -->
-    </resources>
-
-
-
+<resources>
+    <color name="primary_blue">#2257bf</color> <!-- أزرق غامق مائل للأخضر -->
+    <color name="light_blue">#2D2D2D</color>  <!-- أزرق سماوي فاتح ونابض بالحياة -->
+    <color name="white">#FFFFFF</color>        <!-- الأبيض -->
+    <color name="light_gray">#7F8C8D</color>   <!-- رمادي غامق هادئ -->
+    <color name="background_gray">#ECF0F1</color> <!-- رمادي فاتح قريب للأبيض -->
+    <color name="black">#2D2D2D</color> <!-- أسود مائل للرمادي الداكن -->
+</resources>

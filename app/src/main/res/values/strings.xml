@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">NewsApiApp</string>
+    <string name="app_name">UP TO DATE</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="uptodat" />
+    <string name="uptodate">UP TO DATE</string>
 </resources>

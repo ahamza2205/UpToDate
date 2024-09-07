@@ -309,3 +309,5 @@ class FragmentBreakingNews : Fragment(), ItemClicklistner  , MenuProvider {
     }
 
 }
+
+

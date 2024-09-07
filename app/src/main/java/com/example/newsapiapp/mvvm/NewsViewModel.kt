@@ -22,7 +22,7 @@ class NewsViewModel(val newsRepo: NewsRepo, application: Application) :
     val getSavedNews = newsRepo.getAllSavedNews()
 
     init {
-        getBreakingNews("eg")
+        getBreakingNews("us")
 
     }
 
