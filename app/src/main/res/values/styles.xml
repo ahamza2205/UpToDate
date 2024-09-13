@@ -1,46 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Custom style for Bottom Navigation Bar active item indicator -->
     <style name="Bottom.Nav.Bar.Custom.Item.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/primary_blue</item>
     </style>
 
+    <!-- Custom DatePickerDialog style -->
     <style name="CustomDatePickerDialog" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
         <item name="materialCalendarHeaderConfirmButton">@color/light_blue</item>
         <item name="materialCalendarFullscreenTheme">@style/YourCustomCalendarStyle</item>
     </style>
 
+    <!-- Custom style for the fullscreen calendar -->
     <style name="YourCustomCalendarStyle" parent="Theme.MaterialComponents.DayNight.Dialog">
         <item name="android:windowBackground">@color/black</item>
     </style>
 
     <!-- Theme for the entire application -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- اللون الرئيسي للتطبيق (ActionBar) -->
+        <!-- Primary color for the app (ActionBar) -->
         <item name="colorPrimary">@color/primary_blue</item>
-        <!-- لون شريط الحالة (Status Bar) -->
+        <!-- Status Bar color -->
         <item name="android:statusBarColor">@color/primary_blue</item>
-        <!-- إزالة الـ ActionBar إذا كان مطلوبًا -->
+        <!-- Remove ActionBar if required -->
         <item name="windowActionBar">true</item>
-        <!-- يسمح للنظام برسم خلفية شريط الحالة -->
+        <!-- Allow the system to draw the status bar background -->
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <!-- تعيين الخلفية المخصصة للـ ActionBar -->
+        <!-- Set custom background for ActionBar -->
         <item name="actionBarStyle">@style/MyActionBar</item>
     </style>
 
-    <!-- تخصيص شكل الـ ActionBar -->
+    <!-- Custom ActionBar style -->
     <style name="MyActionBar" parent="Widget.AppCompat.ActionBar.Solid">
         <item name="background">@drawable/rounded_action_bar</item>
     </style>
 
     <!-- Theme for Splash Screen without ActionBar -->
     <style name="Theme.Splash.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- اللون الرئيسي في شاشة السبلاش -->
+        <!-- Primary color for the splash screen -->
         <item name="colorPrimary">@color/primary_blue</item>
-        <!-- لون شريط الحالة في شاشة السبلاش -->
+        <!-- Darker primary color for the splash screen status bar -->
         <item name="colorPrimaryDark">@color/primary_blue</item>
-        <!-- لون شريط الحالة (Status Bar) -->
+        <!-- Status Bar color -->
         <item name="android:statusBarColor">@color/primary_blue</item>
-        <!-- يسمح للنظام برسم خلفية شريط الحالة -->
+        <!-- Allow the system to draw the status bar background -->
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
 </resources>

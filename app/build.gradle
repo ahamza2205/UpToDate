@@ -109,9 +109,6 @@ dependencies {
        annotationProcessor "androidx.room:room-compiler:2.4.3" // For Java
        kapt "androidx.room:room-compiler:2.4.3" // For Kotlin
 
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
-    // Lottie
-    implementation 'com.airbnb.android:lottie:6.0.0'
 
 
 
