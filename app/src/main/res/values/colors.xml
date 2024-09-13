@@ -1,8 +1,8 @@
 <resources>
-    <color name="primary_blue">#2257bf</color> <!-- أزرق غامق مائل للأخضر -->
-    <color name="light_blue">#2D2D2D</color>  <!-- أزرق سماوي فاتح ونابض بالحياة -->
-    <color name="white">#FFFFFF</color>        <!-- الأبيض -->
-    <color name="light_gray">#7F8C8D</color>   <!-- رمادي غامق هادئ -->
-    <color name="background_gray">#ECF0F1</color> <!-- رمادي فاتح قريب للأبيض -->
-    <color name="black">#2D2D2D</color> <!-- أسود مائل للرمادي الداكن -->
+    <color name="primary_blue">#2257bf</color> <!-- Dark blue with a hint of green -->
+    <color name="light_blue">#2D2D2D</color>  <!-- Light sky blue, vibrant and lively -->
+    <color name="white">#FFFFFF</color>        <!-- White -->
+    <color name="light_gray">#7F8C8D</color>   <!-- Calm dark gray -->
+    <color name="background_gray">#ECF0F1</color> <!-- Light gray, almost white -->
+    <color name="black">#2D2D2D</color> <!-- Dark grayish-black -->
 </resources>
