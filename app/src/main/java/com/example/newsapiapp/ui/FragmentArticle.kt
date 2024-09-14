@@ -21,7 +21,6 @@ import com.example.newsapiapp.mvvm.NewsDatabase
 import com.example.newsapiapp.mvvm.NewsRepo
 import com.example.newsapiapp.mvvm.NewsViewModel
 import com.example.newsapiapp.mvvm.NewsViewModelFac
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class FragmentArticle : Fragment() {

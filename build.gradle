@@ -3,17 +3,22 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        // other repositories if needed
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:8.1.0" // Use the latest version available
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.6.0-alpha08"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.6.0"
+        classpath "io.github.turansky.seskar:seskar-gradle-plugin:3.30.0"
     }
 }
 
 plugins {
-    id 'com.android.application' version '7.4.2' apply false
-    id 'com.android.library' version '7.4.2' apply false
+    id 'com.android.application' version '8.1.0' apply false
+    id 'com.android.library' version '8.1.0' apply false
     id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+    // Remove the following line if the plugin is already added in the buildscript dependencies
+    // apply(plugin = "io.github.turansky.seskar")
 }

@@ -17,7 +17,7 @@ data class SavedArticle(
     val publishedAt: String,
 
     @ColumnInfo(name = "source")
-    val source: Source, // Ensure Source has a Type Converter
+    val source: Source?, // Ensure Source has a Type Converter
 
     @ColumnInfo(name = "title")
     val title: String,
